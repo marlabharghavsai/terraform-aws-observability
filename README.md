@@ -25,24 +25,29 @@ Monitoring Stack
 ## Project Structure
 ```
 terraform-aws-observability/
+│
 ├── app/
-│   ├── app.py
-│   └── Dockerfile
+│   ├── Dockerfile
+│   └── app.py
+│
+├── grafana/
+│   └── screenshots/
+│       └── grafana-dashboard.png
+│
+├── prometheus/
+│   └── prometheus.yml
+│
 ├── terraform/
 │   ├── main.tf
 │   ├── variables.tf
 │   ├── outputs.tf
 │   └── user-data.sh
-├── prometheus/
-│   └── prometheus.yml
-├── grafana/
-│   ├── dashboards/
-│   │   └── ec2-overview.json
-│   └── datasources/
-│       └── prometheus.yml
+│
 ├── docker-compose.yml
 ├── .env.example
+├── .gitignore
 └── README.md
+
 ```
 
 # Prerequisites
@@ -192,3 +197,4 @@ terraform destroy
 ## Author
 Bharghav Sai Marla
 DevOps | Cloud | AWS | Terraform | Kubernetes
+
