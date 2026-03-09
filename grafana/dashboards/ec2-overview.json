@@ -1,0 +1,52 @@
+{
+    "title": "EC2 Host Overview",
+    "panels": [
+        {
+            "title": "CPU Usage",
+            "type": "timeseries",
+            "targets": [
+                {
+                    "expr": "100 - (avg by (instance) (irate(node_cpu_seconds_total{mode=\"idle\"}[5m])) * 100)"
+                }
+            ],
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 0,
+                "y": 0
+            }
+        },
+        {
+            "title": "Memory Usage",
+            "type": "timeseries",
+            "targets": [
+                {
+                    "expr": "100 * (node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes) / node_memory_MemTotal_bytes"
+                }
+            ],
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 12,
+                "y": 0
+            }
+        },
+        {
+            "title": "Disk I/O",
+            "type": "timeseries",
+            "targets": [
+                {
+                    "expr": "rate(node_disk_io_time_seconds_total[5m])"
+                }
+            ],
+            "gridPos": {
+                "h": 8,
+                "w": 24,
+                "x": 0,
+                "y": 8
+            }
+        }
+    ],
+    "schemaVersion": 30,
+    "timezone": "browser"
+}
